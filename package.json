@@ -1,15 +1,15 @@
 {
-  "name": "@hashlips-lab/safe-nft-metadata-provider",
-  "description": "The easiest way to protect your tokens from snipers.",
+  "name": "@hashlips-lab/collection-data-updater",
+  "description": "A flexible library to update collection data programmatically.",
   "keywords": [],
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "1.0.1",
   "contributors": [
     "Marco Lipparini <developer@liarco.net> (https://www.liarco.net)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hashlips-lab/safe-nft-metadata-provider.git"
+    "url": "https://github.com/hashlips-lab/collection-data-updater.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,15 +17,16 @@
     "/dist"
   ],
   "dependencies": {
-    "@hashlips-lab/collection-data-updater": "^1.0.0",
-    "dotenv": "^16.0.0"
+    "aws-sdk": "^2.1126.0",
+    "ethers": "^5.6.5"
   },
   "devDependencies": {
+    "@aws-sdk/types": "^3.78.0",
     "@types/node": "^17.0.31",
     "typescript": "^4.6.4"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "build": "rm -rf ./dist && tsc",
+    "prepublishOnly": "yarn build"
   }
 }
